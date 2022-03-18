@@ -1,0 +1,100 @@
+<!DOCTYPE html>🥺
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessories page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/minstil.css">
+</head>
+
+<body>
+
+    <main>
+
+        <section class="yourchoice">
+            <h1>Well chosen!</h1>
+            <div id="output"></div>
+
+        </section>
+
+        <section class="checkboxform">
+
+            <form id="form">
+                <fieldset>
+                    <legend>Select accessories (excl. VAT)</legend>
+                    <br>
+                    <div class="acc12">
+                        <div class=acc1>
+                            <input type="checkbox" data-item="Second driver" class="slist" value="199"
+                                onchange="calculateTotal(this, this.value)">Second driver, dkr. 199.00<br>
+                            <input type="checkbox" data-item="Child seat (5-12 year)" class="slist" value="155"
+                                onchange="calculateTotal(this, this.value)">Child seat (5-12 year), dkr. 155,00<br>
+                            <input type="checkbox" data-item="Roadside Aid" class="slist" value="120"
+                                onchange="calculateTotal(this, this.value)">Roadside Aid, dkr. 120,00<br>
+                            <input type="checkbox" data-item="Baby seat (0-1 year)" class="slist" value="100"
+                                onchange="calculateTotal(this, this.value)">Baby seat (0-1 year), dkr. 100,00 <br>
+                        </div>
+
+                        <div class=acc2>
+                            <input type="checkbox" data-item="Child seat (1-4 year)" class="slist" value="140"
+                                onchange="calculateTotal(this, this.value)">Child seat (1-4 years), dkr. 140,00<br>
+                            <input type="checkbox" data-item="GPS navigation" class="slist" value="250"
+                                onchange="calculateTotal(this, this.value)">GPS navigation, dkr. 250,00<br>
+                            <input type="checkbox" data-item="Snow chains" class="slist" value="188"
+                                onchange="calculateTotal(this, this.value)">Snow chains, dkr. 188,00<br>
+                        </div>
+
+                    </div>
+                    <br><br><br>
+                    <button type="submit" class="booknu_knap">Continue</button>
+
+                </fieldset>
+
+            </form>
+            <br>
+            <div id="totaloutput"></div>
+
+        </section>
+
+
+    </main>
+
+    <script>const URL = window.location.search;
+        const URLDATA = new URLSearchParams(URL);
+        
+        const OUTPUT = document.getElementById("output");
+        OUTPUT.innerHTML =
+            "<br>" +
+            `<img src=./${URLDATA.get("image")} />` +
+            "<br>" + URLDATA.get("brand") +
+            "<br>" +
+            "Category: " + URLDATA.get("category") +
+            "<br>" +
+            "Persons: " + URLDATA.get("persons") +
+            "<br>" +
+            "Suitcases: " + URLDATA.get("suitcases") +
+            "<br>" 
+          + "Rental: " + URLDATA.get("carPrice")
+          ;
+          const brand = URLDATA.get("brand")
+          const category = URLDATA.get("category")
+          const persons = URLDATA.get("persons")
+          const suitcases = URLDATA.get("suitcases")
+          const carprice = URLDATA.get("carPrice")
+          const image = URLDATA.get("image")
+        sessionStorage.setItem("brand1",brand)
+        sessionStorage.setItem("category1",category)
+        sessionStorage.setItem("persons1",persons)
+        sessionStorage.setItem("suitcases1",suitcases)
+        sessionStorage.setItem("carPrice1",carprice)
+        sessionStorage.setItem("image", image) 
+        </script>
+        <script src="js/checkbox.js"></script>
+
+</body>
+
+</html>

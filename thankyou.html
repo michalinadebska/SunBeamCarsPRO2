@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank you!</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/minstil.css">
+</head>
+
+<body>
+    <m-currenttime></m-currenttime>
+
+
+    <section class="lastsection">
+        <h1>Thanks! We will have the car ready for you!</h1>
+        <div id="final_output"></div>
+       <!-- <div id="final_two_output"></div>-->
+       <h2>Accessories:</h2>
+       <div id="accessoriesoutput"></div>
+
+        <input type="button" class="booknu_knap" value="Print" onclick="window.print()">
+    </section>
+
+
+
+
+    <script src="js/thankyou.js"></script>
+</body>
+
+<script>
+    const accessoriesoutput = document.getElementById("accessoriesoutput");
+
+    // Get accessories list from sesstionstorage
+    const shoppinglist = JSON.parse(sessionStorage.getItem("goods"));
+
+    // Show every item on accesssories list to user
+    for (const item of shoppinglist) {
+        accessoriesoutput.insertAdjacentHTML("beforeend", `${item}<br>`);
+    }
+
+    // Get and show total value to user
+    accessoriesoutput.insertAdjacentHTML("beforeend", `<br>Total ${sessionStorage.getItem("accessoriesTotal")}`);
+</script>
+</html>

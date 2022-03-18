@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your information</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/minstil.css">
+</head>
+
+<body>
+
+    <main class="yourinformationpage">
+
+
+        <section id="yourinformationsection">
+
+
+            <form id="info">
+                <h1>Your information</h1>
+
+                <input type="text" id="name" placeholder="Your name" required><br>
+                <input type="text" id="lastname" placeholder="Last name" required><br>
+                <input type="text" id="street" placeholder="Street name" required><br>
+                <input type="number" id="number" placeholder="Number/floor" required><br>
+                <input type="text" id="postalandcity" placeholder="Postal code & City" list="codesandcities"
+                    required><br>
+                <input type="checkbox" id="18yo" placeholder="I am 18+ years old" required>I am 18+ years old <br>
+
+
+                <button id="yourinformation_button" class="booknu_knap">Book now!</button>
+            </form>
+
+
+
+            <datalist id="codesandcities"></datalist>
+        </section>
+
+
+
+
+        <div id="infooutput"></div>
+        <div id="accessoriesoutput"></div>
+        <div id="output"></div>
+
+
+        
+
+    </main>
+
+</body>
+<script src="js/postalcodesandcities.js"></script>
+<script>
+    const accessoriesoutput = document.getElementById("accessoriesoutput");
+
+    // Get accessories list from sesstionstorage
+    const shoppinglist = JSON.parse(sessionStorage.getItem("goods"));
+
+    // Show every item on accesssories list to user
+    for (const item of shoppinglist) {
+        accessoriesoutput.insertAdjacentHTML("beforeend", `${item}<br>`);
+    }
+
+    // Get and show total value to user
+    accessoriesoutput.insertAdjacentHTML("beforeend", `<br>Total ${sessionStorage.getItem("accessoriesTotal")}`);
+</script>
+<script src="js/yourinformation2.js"></script>
+<script src="js/car_yourinformation.js"></script>
+
+</html>
